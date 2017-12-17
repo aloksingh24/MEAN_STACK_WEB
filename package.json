@@ -1,0 +1,29 @@
+{
+  "name": "meanweb",
+  "version": "1.0.0",
+  "description": "Mean Stack and Angular 2",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aloksingh24/MEAN_STACK_WEB.git"
+  },
+  "keywords": [
+    "Mean",
+    "Stack",
+    "Angular",
+    "Website"
+  ],
+  "author": "Alok singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aloksingh24/MEAN_STACK_WEB/issues"
+  },
+  "homepage": "https://github.com/aloksingh24/MEAN_STACK_WEB#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7"
+  }
+}
