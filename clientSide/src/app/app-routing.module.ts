@@ -3,10 +3,8 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
-  { path:'',
-    component:HomeComponent
-  },
-  // {path:'**', component:''}
+  { path:'home',component:HomeComponent},
+  { path:'tshirt' , component:HomeComponent}
 ];
 
 @NgModule({
@@ -17,3 +15,4 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents = [HomeComponent]
