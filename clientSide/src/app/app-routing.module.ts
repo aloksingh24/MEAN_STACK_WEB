@@ -1,10 +1,11 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
+import { TshirtComponent } from './components/tshirt/tshirt.component';
 
 const appRoutes: Routes = [
   { path:'home',component:HomeComponent},
-  { path:'tshirt' , component:HomeComponent}
+  { path:'tshirt' , component:TshirtComponent}
 ];
 
 @NgModule({
