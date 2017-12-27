@@ -1,7 +1,7 @@
 const crypto = require('crypto').randomBytes(256).toString('hex');
 
 module.exports={
-    uri : 'mongodb://localhost:27017/'+this.db,
+    uri : 'mongodb://localhost:27017/adi_dev',
     secert : crypto,
-    db : 'mean-angular-2'
+    db : 'adi_dev'
 }

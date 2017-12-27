@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { routingComponents } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { TshirtComponent } from './components/tshirt/tshirt.component';
 
 @NgModule({
   imports: [
@@ -15,7 +14,6 @@ import { TshirtComponent } from './components/tshirt/tshirt.component';
     AppComponent, 
     routingComponents,
     NavbarComponent,
-    TshirtComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
