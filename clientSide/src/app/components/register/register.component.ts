@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
   userNameMessage;
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
      this.createForm();
    }
@@ -68,6 +70,9 @@ export class RegisterComponent implements OnInit {
       } else {
           this.messageClass = 'alert alert-success';
           this.message = data.message;
+          setTimeout(() =>{
+            this.router.navigate(['/login']);
+          },2000);
       }
     });
   }

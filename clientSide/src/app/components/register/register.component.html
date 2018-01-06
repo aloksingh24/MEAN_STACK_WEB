@@ -11,9 +11,9 @@
       <input type="text" name="username" class="form-control" autocomplete="off" placeholder="*Username" formControlName="username" (blur)="checkUserName()" />
     </div>
     <ul class="help-block">
-        <li *ngIf="userForm.controls.username.errors?.required && userForm.controls.username.dirty">This field is required</li>
-        <li *ngIf="userForm.controls.username.errors?.minlength || userForm.controls.username.errors?.maxlength && userForm.controls.username.dirty ">Minimum character is: 3 and Maximum is: 15</li>
-        <li *ngIf="userForm.controls.username.errors?.validateUserName && userForm.controls.username.dirty " >Username must be valid</li>
+        <li *ngIf="userForm.controls.username.errors?.required && userForm.controls.username.dirty" class="alert alert-danger">This field is required</li>
+        <li *ngIf="userForm.controls.username.errors?.minlength || userForm.controls.username.errors?.maxlength && userForm.controls.username.dirty" class="alert alert-danger" >Minimum character is: 3 and Maximum is: 15</li>
+        <li *ngIf="userForm.controls.username.errors?.validateUserName && userForm.controls.username.dirty " class="alert alert-danger" >Username must be valid</li>
         <li *ngIf="userNameMessage">{{userNameMessage}}</li>
     </ul>
   </div>
@@ -23,7 +23,7 @@
     <div [ngClass]="{'has-error': (userForm.controls.email.errors && userForm.controls.email.dirty) || (!emailValid && userForm.controls.email.dirty), 'has-success': !userForm.controls.email.errors && emailValid }" >
       <input type="text" name="email" class="form-control" autocomplete="off" placeholder="*Email" formControlName="email" (blur)="checkEmail()" />
     </div>
-    <ul class="help-block">
+    <ul class="help-block ">
         <li *ngIf="userForm.controls.email.errors?.required && userForm.controls.email.dirty">This field is required</li>
         <li *ngIf="userForm.controls.email.errors?.minlength || userForm.controls.email.errors?.maxlength && userForm.controls.email.dirty ">Minimum character is: 5 and Maximum is: 30</li>
         <li *ngIf="userForm.controls.email.errors?.validateEmail && userForm.controls.email.dirty " >E-mail must be valid</li>
@@ -53,6 +53,6 @@
     </ul>
   </div>
 
-  <input [disabled]="!userForm.valid || processing || !emailValid || !userNameValid" type="submit" class="btn btn-primary" value="Submit" />  
+  <input [disabled]="!userForm.valid || processing || !emailValid || !userNameValid" type="submit" class="btn btn-primary" value="Submit" />
 
 </form>

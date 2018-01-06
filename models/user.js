@@ -61,7 +61,7 @@ let passwordValid = (password) => {
 }
 
 const passwordValidators= [{
-    validator : passwordLengthChecker, 
+    validator : passwordLengthChecker,
     message : "Password must be atleast 8 or less than 35"
 },
 {
@@ -106,7 +106,7 @@ userSchema.pre('save',function(next) {
     })
 });
 
-userSchema.methods.comparePassword=(password)=>{
+userSchema.methods.comparePassword=function(password){
     return bcrypt.compareSync(password,this.password);
 };
 
