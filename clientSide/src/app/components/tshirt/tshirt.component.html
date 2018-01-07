@@ -1,1 +1,38 @@
-<p class="page-header">T Shirt Page</p>
+<mat-drawer-container class="demo-drawer-container">
+  <mat-drawer #focusDrawer>
+    <mat-nav-list>
+      <a mat-list-item routerLink>Link</a>
+      <a mat-list-item routerLink cdkFocusRegionStart>Focus region start</a>
+      <a mat-list-item routerLink>Link</a>
+      <a mat-list-item routerLink cdkFocusInitial>Initially focused</a>
+      <a mat-list-item routerLink cdkFocusRegionEnd>Focus region end</a>
+      <a mat-list-item routerLink>Link</a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div class="demo-drawer-content">
+    <h1>My Content</h1>
+
+    <div>
+
+      <button mat-button (click)="focusDrawer.toggle()">Filter</button>
+    </div>
+    <div>
+    <mat-card>
+    <mat-card-title>Kutte Haramzaade!!!</mat-card-title>
+    <mat-card-content>
+      <mat-grid-list cols="3" rowHeight="200px">
+        <mat-grid-tile *ngFor="let dog of dogs">
+          <img [alt]="dog.name" src="https://material.angularjs.org/material2_assets/ngconf/{{dog.name}}.png">
+          <mat-grid-tile-footer>
+            <h3 mat-line>{{dog.name}}</h3>
+            <span mat-line>Human: {{dog.human}}</span>
+            <mat-icon>star_border</mat-icon>
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+  </div>
+  </div>
+</mat-drawer-container>

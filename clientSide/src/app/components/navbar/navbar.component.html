@@ -1,31 +1,73 @@
-<nav class="navbar navbar-default">
-    <ul class="nav navbar-new navbar-left">
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="navbar-header">
-          <a routerLink="/home">Home</a>
-      </li>
-      <li>|</li>
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a routerLink="/tshirt">T-Shirt</a>
-      </li>
-      <li>|</li>
-      <li >
-          <a routerLink="/register">Register</a>
-      </li>
-      <li>|</li>
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a routerLink="/login">Login</a>
-     </li>
-     <li>|</li>
-     <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-       <a routerLink="/profile">Profile</a>
-    </li>
-    <li>|</li>
-    <li >
-      <a href="#" (click)="onLogoutClick()">Logout</a>
-   </li>
-    </ul>
-  </nav>
+<div>
+  <mat-toolbar color="primary">
+    <span>Adie-Fashion</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">favorite</mat-icon>
+    <mat-icon [mat-menu-trigger-for]="menu" class="example-icon">more_vert</mat-icon>
+
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon> dialpad </mat-icon>
+    <span> Redial </span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon> voicemail </mat-icon>
+    <span> Check voicemail </span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon> notifications_off </mat-icon>
+    <span> Disable alerts </span>
+  </button>
+  <button (click)="login()" mat-menu-item>
+    <mat-icon> notifications_off </mat-icon>
+    <span> Login </span>
+  </button>
+  <!--<button (click)="googleInit()" mat-menu-item>
+    <mat-icon> notifications_off </mat-icon>
+    <span> Google Login </span>
+  </button>-->
+  <button (click)="share()" mat-menu-item>
+    <mat-icon> notifications_off </mat-icon>
+    <span> Google Login </span>
+  </button>
+</mat-menu>
+
+  <mat-card>
+    <button mat-raised-button color="primary" routerLink="/home">Home</button>
+    <button mat-raised-button color="accent" routerLink="/tshirt">Tees</button>
+    <button mat-raised-button color="primary" routerLink="/register">Register</button>
+    <button mat-raised-button color="accent" routerLink="/login">Login</button>
+    <button mat-raised-button color="primary" routerLink="/profile">Profile</button>
+    <button mat-raised-button color="accent" (click)="onLogoutClick()">Logout</button>
+  </mat-card>
+
+  <!-- <span class="done">
+    <button mat-fab>
+      <mat-icon>check circle</mat-icon>
+    </button>
+  </span> -->
   <div class="container">
     <flash-messages></flash-messages>
     <router-outlet></router-outlet>
   </div>
+</div>
+  <!--<div>
+    <mat-card>
+    <mat-card-title>Kutte Haramzaade!!!</mat-card-title>
+    <mat-card-content>
+      <mat-grid-list cols="3" rowHeight="200px">
+        <mat-grid-tile *ngFor="let dog of dogs">
+          <img [alt]="dog.name" src="https://material.angularjs.org/material2_assets/ngconf/{{dog.name}}.png">
+          <mat-grid-tile-footer>
+            <h3 mat-line>{{dog.name}}</h3>
+            <span mat-line>Human: {{dog.human}}</span>
+            <mat-icon>star_border</mat-icon>
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+  </div>-->
+
+  <!-- <app-drawer></app-drawer> -->
