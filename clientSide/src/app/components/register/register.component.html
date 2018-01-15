@@ -4,7 +4,22 @@
       {{message}}
   </div>
 </div>
+<div  class="example-form">
 <form [formGroup]="userForm" (submit)="onSubmit()">
+  <!--Testing Start -->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email"
+           [errorStateMatcher]="matcher">
+    <span matPrefix><img src="assets/images/tshirt/image.png" /></span>
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    <mat-error *ngIf="userForm.controls.email.errors?.email && !userForm.controls.email.errors?.required">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="userForm.controls.email.errors?.required ">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <!--Testing End -->
   <div class="form-group">
     <label for="username">Username</label>
     <div [ngClass]="{'has-error': (userForm.controls.username.errors && userForm.controls.username.dirty) || (!userNameValid && userForm.controls.username.dirty), 'has-success': !userForm.controls.username.errors && userNameValid}" >
@@ -55,4 +70,6 @@
 
   <input [disabled]="!userForm.valid || processing || !emailValid || !userNameValid" type="submit" class="btn btn-primary" value="Submit" />
 
+
 </form>
+</div>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import {ErrorStateMatcher} from '@angular/material/core';
 
 @Component({
   selector: 'app-register',
@@ -35,6 +36,7 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(30),
+        Validators.email,
         this.validateEmail
       ])],
       username: ['',Validators.compose([
@@ -155,5 +157,13 @@ export class RegisterComponent implements OnInit {
       }
     });
   }
+  //Testing
+  /** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 }

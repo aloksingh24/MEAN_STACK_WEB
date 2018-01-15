@@ -28,7 +28,7 @@ const appRoutes: Routes = [{
     component : ProfileComponent
   },
   {
-    path : '*',
+    path : '**',
     component : HomeComponent
   }
 ];
