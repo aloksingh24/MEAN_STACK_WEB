@@ -1,0 +1,71 @@
+<h1 class="page-header">Contact Us</h1>
+
+<div  class="example-form">
+<form [formGroup]="userForm" (submit)="onSubmit()">
+  <!--Name Start -->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" formControlName="name"
+           [errorStateMatcher]="matcher">
+    <span matPrefix><img src="assets/images/tshirt/userName.png" /></span>
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    <!-- <mat-error *ngIf="userForm.controls.email.errors?.email && !userForm.controls.email.name?.required">
+      Please enter a valid name address
+    </mat-error> -->
+    <mat-error *ngIf="userForm.controls.name.errors?.required ">
+      Name is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="userForm.controls.name.errors?.minLength || userForm.controls.name.errors?.maxLength ">
+    Minimum character is: <strong>3 </strong>and Maximum is:<strong> 30</strong>
+    </mat-error>
+  </mat-form-field>
+  <!--Name End -->
+  <!--Email Start -->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email"
+           [errorStateMatcher]="matcher">
+    <span matPrefix><img src="assets/images/tshirt/email.jpg" /></span>
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    <mat-error *ngIf="userForm.controls.email.errors?.email && !userForm.controls.email.errors?.required">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="userForm.controls.email.errors?.required ">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <!--Email End -->
+
+  <!--Phone Start -->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Phone" formControlName="phone"
+           [errorStateMatcher]="matcher">
+    <span matPrefix><img src="assets/images/tshirt/phone.png" /></span>
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    <!-- <mat-error *ngIf="userForm.controls.email.errors?.email && !userForm.controls.email.name?.required">
+      Please enter a valid name address
+    </mat-error> -->
+    <mat-error *ngIf="userForm.controls.phone.errors?.required ">
+      Phone is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <!--Phone End -->
+
+  <!--Inquiry Start -->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Inquiry" formControlName="inquiry"
+           [errorStateMatcher]="matcher">
+    <span matPrefix><img src="assets/images/tshirt/inquiry.png" /></span>
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    <!-- <mat-error *ngIf="userForm.controls.email.errors?.email && !userForm.controls.email.name?.required">
+      Please enter a valid name address
+    </mat-error> -->
+    <mat-error *ngIf="userForm.controls.inquiry.errors?.required ">
+      Inquiry is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <!--Phone End -->
+
+  <input [disabled]="!userForm.valid" type="submit" class="btn btn-primary" value="Submit" />
+
+
+</form>
+</div>

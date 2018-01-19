@@ -63,4 +63,8 @@ export class AuthService {
     return this.http.get('http://localhost:8080/authentication/profile',this.options).map(res => res.json());
   }
 
+  // contactus(){
+  //   return this.http.post('http://localhost:8080/authentication/contactus',data).map(res => res.json());
+  // }
+
 }

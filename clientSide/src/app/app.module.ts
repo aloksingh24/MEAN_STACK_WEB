@@ -7,8 +7,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
-import { LoginComponent } from './components/login/login.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 //Integration of UI
@@ -28,9 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     routingComponents,
-    NavbarComponent,
-    LoginComponent,
-    ProfileComponent
+    NavbarComponent
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { TshirtComponent } from './components/tshirt/tshirt.component';
 import { RegisterComponent} from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 const appRoutes: Routes = [{
@@ -28,6 +29,10 @@ const appRoutes: Routes = [{
     component : ProfileComponent
   },
   {
+    path : 'contactus',
+    component : ContactUsComponent
+  },
+  {
     path : '**',
     component : HomeComponent
   }
@@ -41,4 +46,4 @@ const appRoutes: Routes = [{
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent,TshirtComponent,RegisterComponent,LoginComponent,ProfileComponent]
+export const routingComponents = [HomeComponent,TshirtComponent,RegisterComponent,LoginComponent,ProfileComponent,ContactUsComponent]

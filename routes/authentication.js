@@ -2,7 +2,73 @@
   const User = require('../models/user');
   const jwt = require('jsonwebtoken');
   const config = require('../config/database.js');
+  // for sending mails
+  const nodemailer = require('nodemailer');
+  const xoauth2 = require('xoauth2');
+  var smtpTransport = require('nodemailer-smtp-transport');
+//   var transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         xoauth2: xoauth2.createXOAuth2Generator({
+//             user: 'cout.alok143@gmail.com',
+//             clientId: '531058220692-gv7e6bfb3njth6vviu4daq50er7vkodb.apps.googleusercontent.com',
+//             clientSecret: 'KjAysR-lCP3SjrisWj4cFdYk',
+//             refreshToken: '1/nwZsVlRwN9aTFYMSv5a0-KtgcT9HRh9JkzdBipPp4Ts'
+//         })
+//     }
+// })
+
+  //Sending mail end
   module.exports=(router)=>{
+    // for Contact Us data
+    router.post('/contactus',(req,res) =>{
+      if(!req.body.name){
+        res.json({ success:false, message: 'You must provide name'});
+      }else{
+        if(!req.body.email){
+          res.json({success:false, message: 'You must provide the e-mail'});
+        }else{
+          if(!req.body.phone){
+            res.json({success:false, message: 'You must provide the Phone number'});
+          }else{
+            if(!req.body.inquiry){
+              res.json({success: false, message: 'You must provide the inquiry data'});
+            }else {
+              //res.json({success: true, message: 'All data are provided'});
+              //--Start
+              var transporter = nodemailer.createTransport(smtpTransport({
+                service: 'gmail',
+                host: 'smtp.gmail.com',
+                auth: {
+                  user: config.email,
+                  pass: config.password
+                }
+              }));
+
+
+              var mailOptions = {
+                from: 'alokkumar.singh@outlook.com',
+                to: 'alokkumar.singh@outlook.com',
+                subject: 'Sending Email using Node.js[nodemailer]',
+                text: req.body.name+req.body.email+req.body.phone+req.body.inquiry
+              };
+
+              transporter.sendMail(mailOptions, function(error, info){
+                if (error) {
+                    console.log("Alok value of email "+config.email);
+                    console.log(error);
+                  } else {
+                    console.log('Email sent: ' + info.response);
+                  }
+                });
+              //--End
+
+          }
+        }
+      }
+    }
+  });
+
       router.post('/register',(req,res)=>{
           //req.body.email
           //req.body.userName
